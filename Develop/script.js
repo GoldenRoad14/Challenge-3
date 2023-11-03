@@ -19,10 +19,8 @@ while(true){
   passwordLength = window.prompt("Enter desired password length, between 8 and 128 characters.");
   passwordLength = parseInt(passwordLength);
   if (passwordLength >= 8 && passwordLength <= 128){
-    // console.log(passwordLength + "yay!")
     break;
   } else {
-    // console.log(passwordLength + "oops!");
     alert("Invalid input. Please enter a number between 8 and 128.");
 
   }
@@ -32,28 +30,24 @@ while(true){
     let charTypesUpper = window.prompt("Do you want to include UPPER CASE characters? Yes/No");
     charTypesUper = charTypesUpper.toLowerCase();
       if (charTypesUpper === "yes" || charTypesUpper === "Yes"){
-      // console.log(charTypesUpper);
       charTypesUpperIsTrue = true;
     } else if (charTypesUpper === "no" || charTypesUpper === "No"){
       charTypesUpperIsTrue = false;
     } else {
       alert("Invalid input. Please enter Yes or No.");
     }
-    // console.log(charTypesUpperIsTrue);
   }
 
   while(typeof charTypesLowerIsTrue === 'undefined'){
     let charTypesLower = window.prompt("Do you want to include LOWER CASE letters? Yes/No");
     charTypesLower = charTypesLower.toLowerCase();
       if (charTypesLower === "yes" || charTypesLower === "Yes"){
-        // console.log(charTypesLower);
         charTypesLowerIsTrue = true;
       } else if(charTypesLower === "no" || charTypesLower === "No"){
         charTypesLowerIsTrue = false;
       } else {
         alert("Invalid input. Please enter Yes or No.");
       }
-      // console.log(charTypesLowerIsTrue);
   }
 
   while(typeof charTypesNumIsTrue === 'undefined'){
@@ -66,7 +60,6 @@ while(true){
       } else {
         alert("Invalid input. Please enter Yes or No.");
       }
-      // console.log(charTypesLowerIsTrue);
   }
   // let charTypesSpecial = window.prompt("Do you want to include special characters? Yes/No");
   while(typeof charTypesSpecialIsTrue === 'undefined'){
@@ -79,30 +72,41 @@ while(true){
       } else {
         alert("Invalid input. Please enter Yes or No.");
       }
-      // console.log(charTypesLowerIsTrue);
   }
 
-  console.log("You entered: " + passwordLength + charTypesUpperIsTrue + charTypesLowerIsTrue + charTypesNumIsTrue + charTypesSpecialIsTrue);
+  console.log(passwordLength + charTypesUpperIsTrue + charTypesLowerIsTrue + charTypesNumIsTrue + charTypesSpecialIsTrue);
   
   
-  
+  //define available characters for password
   // var password = generatePassword();
-  // var passwordText = document.querySelector("#password"); // #password displays output in the textbox
+  var password = '';
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numbers = "1234567890";
+  var specialChars = "!@#$%^&*()";
+  var availChars = '';
+  //define which character sets were specified by user & put them into var availChars
+  if (charTypesUpperIsTrue) availChars += upperCase;
+  if (charTypesLowerIsTrue) availChars += lowerCase;
+  if (charTypesNumIsTrue) availChars += numbers;
+  if (charTypesSpecialIsTrue) availChars += specialChars;
 
-  // passwordText.value = password; //changes placeholder text for password and returns the new password
+console.log(availChars);
+
+// generates the password based on input criteria
+  for (let i = 0; i <= passwordLength; i++){
+    var randomGen = Math.floor(Math.random() * availChars.length);
+    password += availChars[randomGen];
+
+    console.log(password);
+  }
+
+
+  var passwordText = document.querySelector("#password"); // #password displays output in the textbox
+
+  passwordText.value = password; //changes placeholder text for password and returns the new password
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
-
-
-
-
-// Validate input
-
-// Generate password & write to page
