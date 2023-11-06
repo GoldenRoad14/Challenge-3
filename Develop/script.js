@@ -1,6 +1,3 @@
-// Assignment code here
-
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate"); // button ID is #generate
 
@@ -61,7 +58,7 @@ while(true){
         alert("Invalid input. Please enter Yes or No.");
       }
   }
-  // let charTypesSpecial = window.prompt("Do you want to include special characters? Yes/No");
+
   while(typeof charTypesSpecialIsTrue === 'undefined'){
     let charTypesSpecial = window.prompt("Do you want to include SPECIAL CHARACTERS? Yes/No");
     charTypesSpecial = charTypesSpecial.toLowerCase();
@@ -74,17 +71,18 @@ while(true){
       }
   }
 
-  console.log(passwordLength + charTypesUpperIsTrue + charTypesLowerIsTrue + charTypesNumIsTrue + charTypesSpecialIsTrue);
+  // Check input accuracy
+  // console.log(passwordLength + charTypesUpperIsTrue + charTypesLowerIsTrue + charTypesNumIsTrue + charTypesSpecialIsTrue);
   
   
-  //define available characters for password
-  // var password = generatePassword();
+  // Define available characters for password
   var password = '';
   var lowerCase = "abcdefghijklmnopqrstuvwxyz";
   var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   var numbers = "1234567890";
   var specialChars = "!@#$%^&*()";
   var availChars = '';
+
   //define which character sets were specified by user & put them into var availChars
   if (charTypesUpperIsTrue) availChars += upperCase;
   if (charTypesLowerIsTrue) availChars += lowerCase;
