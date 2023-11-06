@@ -6,6 +6,9 @@ Random Password Generator
 ## Description
 This script will take user inputs for which types of characters and length of desired password, and generate a random password.
 
+
+![Screenshot of Password Generator](image.png)
+
 ## Getting Started
 Click 'Generate Password' and follow the on screen prompts.
 
