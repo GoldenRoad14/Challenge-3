@@ -92,7 +92,7 @@ while(true){
 console.log(availChars);
 
 // generates the password based on input criteria
-  for (let i = 0; i <= passwordLength; i++){
+  for (let i = 1; i <= passwordLength; i++){
     var randomGen = Math.floor(Math.random() * availChars.length);
     password += availChars[randomGen];
 
